@@ -1,0 +1,188 @@
+/* PAGES LAYER — multi-page shell, peacock & marble theme */
+:root{--ink:#291e17;--teal:#463428}
+.curtain{position:fixed;inset:0;z-index:300;pointer-events:none;background:linear-gradient(160deg,#291e17,#463428 60%,#291e17);animation:lift .9s .05s cubic-bezier(.7,0,.2,1) both}
+.curtain:after{content:"✥";position:absolute;left:50%;top:50%;translate:-50% -50%;font-size:46px;color:#d9b46c}
+@keyframes lift{from{transform:none}to{transform:translateY(-101%)}}
+@keyframes drop{from{transform:translateY(101%)}to{transform:none}}
+.topbar nav a.active{color:#f3dca4}.topbar nav a.active:after{width:100%}
+.page-hero{position:relative;height:62vh;min-height:430px;overflow:hidden;background:var(--ink);color:#f3ece0;display:flex;align-items:flex-end}
+.page-hero-bg{position:absolute;inset:-6%;background-size:cover;background-position:center 60%;filter:saturate(.95) contrast(1.05);animation:kb 24s ease-out forwards}
+.page-hero-shade{position:absolute;inset:0;background:linear-gradient(0deg,rgba(29,21,16,.95),rgba(29,21,16,.35) 55%,rgba(29,21,16,.65))}
+.page-hero:after{content:"";position:absolute;inset:14px;border:1px solid rgba(217,180,108,.35);pointer-events:none}
+.page-hero-inner{position:relative;z-index:2;padding:0 10% 70px;max-width:1000px}
+.crumb{font-size:9px;letter-spacing:3px;color:#d9b46c;margin:0 0 22px}.crumb a:hover{color:#fff}.crumb i{opacity:.5;margin:0 6px;font-style:normal}
+.page-hero h1{font:500 clamp(54px,8vw,116px)/.92 "Cormorant Garamond",serif;margin:0;letter-spacing:-1px;background:linear-gradient(100deg,#f7e3ae,#fff 45%,#d9b46c);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:fade 1.3s .5s var(--ease) both}
+.page-sub{max-width:520px;font-size:14px;line-height:1.9;color:#e7d9c8;margin:26px 0 0;animation:fade 1.3s .8s var(--ease) both}
+.page-hero-arch{position:absolute;right:9%;bottom:0;width:min(22vw,280px);height:78%;border:1px solid rgba(243,220,164,.5);border-bottom:0;border-radius:999px 999px 0 0;outline:1px solid rgba(243,220,164,.2);outline-offset:12px;animation:fade 1.6s 1s var(--ease) both}
+@media(max-width:900px){.page-hero-arch{display:none}.page-hero-inner{padding-bottom:50px}}
+.explore{background:linear-gradient(180deg,#f3ece4,#ede3d8)}
+.pcards{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.pcard{position:relative;height:430px;overflow:hidden;display:block;color:#f3ece0;border-radius:999px 999px 8px 8px/260px 260px 8px 8px;box-shadow:0 25px 60px rgba(41,30,23,.25)}
+.pcard:first-child{grid-column:span 2;border-radius:8px 220px 8px 8px/8px 220px 8px 8px;height:430px}
+.pcard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.6s var(--ease)}
+.pcard:hover img{transform:scale(1.1)}
+.pcard-shade{position:absolute;inset:0;background:linear-gradient(0deg,rgba(29,21,16,.92),rgba(29,21,16,.1) 60%)}
+.pcard-n{position:absolute;top:22px;left:50%;translate:-50% 0;font:500 15px "Cormorant Garamond",serif;letter-spacing:4px;color:#f3dca4}
+.pcard:first-child .pcard-n{left:28px;translate:0}
+.pcard-t{position:absolute;left:28px;right:28px;bottom:26px}
+.pcard h3{font:500 34px/1 "Cormorant Garamond",serif;margin:0 0 10px}
+.pcard p{font-size:12px;line-height:1.8;color:#e7d9c8;margin:0;max-width:330px}
+.pcard b{position:absolute;right:0;bottom:0;width:44px;height:44px;border:1px solid #d9b46c;border-radius:50%;display:grid;place-items:center;color:#f3dca4;transition:.5s var(--ease)}
+.pcard:hover b{background:#d9b46c;color:#291e17;rotate:-45deg}
+@media(max-width:900px){.pcards{grid-template-columns:1fr}.pcard,.pcard:first-child{grid-column:auto;height:380px}}
+.explore .stat-row{margin-top:110px}
+.next-page{display:flex;align-items:center;justify-content:space-between;gap:30px;padding:70px 10%;background:linear-gradient(110deg,#291e17,#463428);color:#f3ece0;transition:padding .6s var(--ease)}
+.next-page:hover{padding-left:12%}
+.next-page small{font-size:9px;letter-spacing:3px;color:#d9b46c}
+.next-page b{font:500 clamp(40px,6vw,84px)/1 "Cormorant Garamond",serif;flex:1;margin-left:40px}
+.next-page span{width:70px;height:70px;border:1px solid #d9b46c;border-radius:50%;display:grid;place-items:center;font-size:24px;color:#f3dca4;transition:.5s var(--ease)}
+.next-page:hover span{background:#d9b46c;color:#291e17;transform:translateX(10px)}
+@media(max-width:700px){.next-page{flex-wrap:wrap}.next-page b{margin:0;flex-basis:100%}}
+.footer-links{display:flex;flex-wrap:wrap;gap:30px;padding:26px 5.5%;border-top:1px solid rgba(217,180,108,.25);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#d9b46c}
+.footer-links a:hover{color:#fff}
+.loader.done{display:none}
+.explore h2{font:500 clamp(54px,6vw,84px)/.91 "Cormorant Garamond",serif;color:#291e17;margin:0;letter-spacing:-1px}
+.explore .eyebrow{color:#463428}
+.pcard-n{text-shadow:0 1px 10px #000c;font-size:17px}
+.pcard-shade{background:linear-gradient(0deg,rgba(29,21,16,.95),rgba(29,21,16,.15) 62%,rgba(29,21,16,.45))}
+/* ===== NUDE & GOLD — refinements, structure, calmer floating elements ===== */
+:root{--cocoa:#2b1f19;--nude:#f1e6d6;--nude2:#e8d9c4;--bronze:#6b5646}
+/* floating elements: fewer, calmer, never overlapping */
+.hero-ornament{display:none}
+.hero-arch{right:15%;top:17%;width:min(25vw,330px)}
+.hero-stamp{right:6%;bottom:8%;width:104px;height:104px;animation:none;transform:none;box-shadow:none;outline-offset:4px}
+.hero-side-note{right:2.2%}
+.glow{width:380px;height:380px;margin:-190px 0 0 -190px;opacity:.65}
+.ring{border-color:#c49a55}
+@media(max-width:900px){.hero-stamp{display:none}}
+.branch,.orbit-two,.lineage:before{display:none}
+.lineage{height:230px;margin:30px 0 10px}
+.family-intro{grid-template-columns:1.25fr .75fr}
+.family-section h2{font-size:clamp(44px,5vw,72px)}
+/* heritage: balanced story layout */
+.story-layout{grid-template-columns:1fr 1fr;align-items:start;row-gap:30px}
+.story-heading{grid-column:1;grid-row:1}
+.story-visual{grid-column:2;grid-row:1/span 2;height:640px}
+.story-copy{grid-column:1;grid-row:2;max-width:none;margin:0;font-size:15px;line-height:1.95}
+@media(max-width:900px){.story-heading,.story-visual,.story-copy{grid-column:auto;grid-row:auto}.story-visual{height:460px}}
+.places{background:var(--nude2);padding-top:100px;padding-bottom:110px}
+.plan{background:var(--nude2);padding:110px 10%}
+.pl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.pl-card{position:relative;padding:44px 34px 40px;background:linear-gradient(160deg,#f8efe1,#eddcc4);border:1px solid #cfae78;overflow:hidden;transition:transform .7s var(--ease),box-shadow .7s}
+.pl-card:hover{transform:translateY(-8px);box-shadow:0 30px 60px rgba(91,61,31,.18)}
+.pl-card b{display:block;font:500 80px/1 "Cormorant Garamond",serif;color:transparent;-webkit-text-stroke:1px #b98f4e}
+.pl-card h3{font:500 32px/1.1 "Cormorant Garamond",serif;color:#3b2a22;margin:20px 0 12px}
+.pl-card p{font-size:14px;line-height:1.85;color:var(--bronze);margin:0}
+.pl-card i{position:absolute;right:22px;top:20px;font-style:normal;color:#c49a55;font-size:22px}
+@media(max-width:900px){.pl-grid{grid-template-columns:1fr}}
+.map-frame{margin-top:56px;height:440px;padding:10px;background:#f8efe1;border:1px solid #cfae78;box-shadow:0 25px 60px rgba(91,61,31,.15)}
+.map-frame iframe{width:100%;height:100%;border:0;filter:sepia(.35) saturate(.8) contrast(.95)}
+/* architecture: clean grid + anatomy block */
+.craft-gallery{grid-template-columns:repeat(4,1fr);gap:22px;align-items:stretch}
+.craft-item{margin-top:0!important}
+.craft-photo{height:380px!important}
+.craft-desc{font-size:12px;line-height:1.7;color:var(--bronze);margin:0;padding:0 6px 20px}
+@media(max-width:1000px){.craft-gallery{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.craft-gallery{grid-template-columns:1fr}}
+.anatomy{display:grid;grid-template-columns:.9fr 1.1fr;gap:8%;align-items:center;padding:120px 10%;background:var(--nude)}
+.an-photo{aspect-ratio:4/5;overflow:hidden;border-radius:999px 999px 8px 8px;box-shadow:0 30px 70px rgba(91,61,31,.25);outline:1px solid #c49a55;outline-offset:12px}
+.an-photo img{width:100%;height:100%;object-fit:cover;transition:transform 1.6s var(--ease)}
+.an-photo:hover img{transform:scale(1.06)}
+.an-text h2{font:500 clamp(48px,5.5vw,80px)/.92 "Cormorant Garamond",serif;color:#3b2a22;margin:0 0 40px}
+.an-list{list-style:none;margin:0;padding:0}
+.an-list li{display:grid;grid-template-columns:74px 1fr;gap:10px;padding:26px 0;border-top:1px solid #d6bd92;transition:padding .5s var(--ease)}
+.an-list li:hover{padding-left:14px}
+.an-list b{font:500 34px "Cormorant Garamond",serif;color:#b98f4e}
+.an-list h3{font:500 26px "Cormorant Garamond",serif;color:#3b2a22;margin:0 0 6px}
+.an-list p{font-size:13px;line-height:1.8;color:var(--bronze);margin:0}
+@media(max-width:900px){.anatomy{grid-template-columns:1fr;padding:80px 8%}}
+/* gallery: masonry (no orphans) + lightbox */
+.event-gallery{display:block!important;columns:3;column-gap:20px}
+.event-photo,.event-photo.feature{grid-column:auto!important;grid-row:auto!important;break-inside:avoid;margin:0 0 20px!important;height:auto!important}
+.event-photo img{width:100%;height:auto!important;display:block}
+@media(max-width:900px){.event-gallery{columns:2}}@media(max-width:560px){.event-gallery{columns:1}}
+.lightbox{position:fixed;inset:0;z-index:400;background:rgba(30,20,14,.94);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;opacity:0;visibility:hidden;transition:.4s}
+.lightbox.open{opacity:1;visibility:visible}
+.lightbox img{max-width:86vw;max-height:78vh;border:1px solid #c49a55;box-shadow:0 30px 100px #000}
+.lightbox p{margin:0;color:#e8d3a8;font-size:11px;letter-spacing:3px;text-transform:uppercase}
+.lightbox button{position:absolute;background:none;border:1px solid #c49a55;color:#f3dca4;width:52px;height:52px;border-radius:50%;font-size:20px;cursor:pointer;transition:.3s}
+.lightbox button:hover{background:#c49a55;color:#2b1f19}
+.lb-x{top:28px;right:28px}.lb-p{left:28px;top:50%}.lb-n{right:28px;top:50%}
+/* gallery: feature + 3x3 uniform grid (10 photos, no orphans) */
+.event-gallery{display:grid!important;columns:auto!important;grid-template-columns:repeat(3,1fr);gap:20px}
+.event-photo,.event-photo.feature{margin:0!important;aspect-ratio:4/3;overflow:hidden}
+.event-photo.feature{grid-column:1/-1!important;aspect-ratio:21/9}
+.event-photo a{display:block;width:100%;height:100%}
+.event-photo img{width:100%;height:100%!important;object-fit:cover}
+@media(max-width:900px){.event-gallery{grid-template-columns:repeat(2,1fr)}.event-photo.feature{aspect-ratio:16/9}}
+@media(max-width:560px){.event-gallery{grid-template-columns:1fr}}
+.hero-stamp b{font-size:15px;letter-spacing:1px}.hero-stamp span{font-size:6px;letter-spacing:2px}
+
+/* ===== Revision: remove golden line diagrams, fix Devanagari clipping, new hero image ===== */
+.hero:after,.page-hero:after,.hero-arch,.page-hero-arch,.hero-stamp,.hero-ornament,.hero-arch:after{display:none!important;content:none!important}
+.topbar{border-bottom:0!important}
+
+/* landing page background: tour-10 */
+.hero-photo{background-image:linear-gradient(95deg,rgba(28,21,16,.88) 0%,rgba(47,34,26,.58) 42%,rgba(36,26,20,.12) 100%),url("assets/tour-10.jpg")!important;background-position:center 55%!important}
+
+/* Hindi / Devanagari: proper font, no negative tracking, tall line-height, no clipping */
+body.hi,body.hi *{font-family:"Noto Serif Devanagari","Kohinoor Devanagari","Nirmala UI","Mangal",serif;letter-spacing:0!important}
+body.hi .topbar nav a,body.hi .language{text-transform:none}
+body.hi h1,body.hi h2,body.hi h3{line-height:1.35!important;font-weight:600}
+body.hi .hero h1{font-size:clamp(44px,6.2vw,92px)!important;margin:26px 0 22px!important}
+body.hi .hero h1 span,body.hi .hero h1 em{padding:.06em 0}
+body.hi .hero h1 .w{overflow:visible!important;padding:.08em .04em!important;margin-bottom:0!important}
+body.hi .hero h1 .w>i{transform:none!important;opacity:0;animation:hiRise 1.1s var(--ease) forwards!important;animation-delay:calc(.9s + var(--i)*.14s)!important}
+body.hi .hero h1 em .w>i{background:none!important;-webkit-background-clip:border-box!important;background-clip:border-box!important;-webkit-text-fill-color:#e1bd79!important;color:#e1bd79}
+body.hi .hero h1 em{margin-left:0!important}
+@keyframes hiRise{from{opacity:0;transform:translateY(.3em)}to{opacity:1;transform:none}}
+body.hi .page-hero{min-height:500px}
+body.hi .page-hero h1{font-size:clamp(40px,5.6vw,80px)!important;background:none!important;-webkit-background-clip:border-box!important;background-clip:border-box!important;-webkit-text-fill-color:#f7e3ae!important;color:#f7e3ae;padding:.05em 0}
+body.hi .page-sub,body.hi .hero-content>p{line-height:2}
+body.hi .page-hero-inner{padding-bottom:60px}
+body.hi .hero h1{line-height:1.18!important}
+body.hi .brand *,body.hi .footer-brand *,body.hi .loader *{letter-spacing:revert!important;font-family:revert}
+body.hi .brand b,body.hi .footer-brand b{font-family:"Cormorant Garamond",Georgia,serif;letter-spacing:2px!important}
+
+/* ===== Visit page rebuild ===== */
+.page-hero-bg[style*="tour-18"]{background-position:center 62%!important;filter:saturate(1.05) contrast(1.04)}
+.visit-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);min-height:660px;background:linear-gradient(135deg,#271a13,#3b2a1e);color:#efe6db;position:relative;overflow:hidden}
+.vs-copy{align-self:center;padding:110px 7% 100px 11%;position:relative;z-index:2}
+.vs-copy h2{font:500 clamp(56px,6.6vw,100px)/.95 "Cormorant Garamond",Georgia,serif;margin:0 0 28px;color:#f5ead9;letter-spacing:-1px}
+.vs-copy>p:not(.eyebrow){max-width:440px;font-size:14px;line-height:2;color:#dccbb3;margin:0}
+.vs-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.vs-actions .visit-button{margin-top:0;gap:22px}
+.visit-button.solid{background:#c59a57;color:#2b1d15;border-color:#c59a57;font-weight:700}
+.visit-button.solid:hover{background:#e0b878}
+.vs-photo{margin:0;position:relative;overflow:hidden;min-height:480px}
+.vs-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 55%;transition:transform 1.8s var(--ease)}
+.vs-photo:hover img{transform:scale(1.05)}
+.vs-photo:before{content:"";position:absolute;inset:0 auto 0 0;width:22%;z-index:1;background:linear-gradient(90deg,#2b1d15,transparent);pointer-events:none}
+.vs-photo:after{content:"";position:absolute;inset:auto 0 0 0;height:30%;z-index:1;background:linear-gradient(0deg,rgba(24,17,12,.75),transparent);pointer-events:none}
+.vs-photo figcaption{position:absolute;left:12%;bottom:26px;z-index:2;font-size:9px;letter-spacing:2.5px;font-weight:700;color:#f1d9a8}
+@media(max-width:900px){.visit-split{grid-template-columns:1fr}.vs-copy{padding:80px 8% 50px}.vs-photo{min-height:360px}.vs-photo:before{display:none}.vs-photo figcaption{left:8%}}
+body.hi .vs-copy h2{font-size:clamp(40px,5vw,72px)!important}
+body.hi .vs-copy>p:not(.eyebrow){line-height:2.1}
+
+/* ===== Site-wide polish ===== */
+/* clearer banner photos: lighter shade, dark only at top (menu) and bottom (text) */
+.page-hero-shade{background:linear-gradient(180deg,rgba(24,17,12,.55) 0,rgba(24,17,12,0) 28%),linear-gradient(0deg,rgba(24,17,12,.9) 0,rgba(24,17,12,.25) 48%,rgba(24,17,12,.05) 100%)!important}
+::selection{background:#c59a57;color:#2b1d15}
+:focus-visible{outline:2px solid #e0b878;outline-offset:3px}
+html{scrollbar-color:#a8794a #e9dccd}
+.pcard img,.craft-item img,.event-photo img{transition:transform 1.4s var(--ease),filter .6s}
+.pcard:hover img{transform:scale(1.06)}
+.pl-card{box-shadow:0 10px 30px rgba(91,61,31,.06)}
+.pl-card:hover{border-color:#b98f4e}
+.map-frame{transition:box-shadow .6s}
+.map-frame:hover{box-shadow:0 35px 80px rgba(91,61,31,.22)}
+.topbar nav a:not(.active):hover{color:#f3dca4}
+.back-top{transition:letter-spacing .4s,color .3s}.back-top:hover{letter-spacing:3px;color:#f3dca4}
+img{image-rendering:auto}
+.to-top{position:fixed;right:22px;bottom:22px;width:44px;height:44px;border-radius:50%;border:1px solid #c59a57;background:rgba(43,29,21,.88);color:#f1d9a8;font-size:18px;cursor:pointer;z-index:40;opacity:0;pointer-events:none;transform:translateY(10px);transition:.4s}
+.to-top.show{opacity:1;pointer-events:auto;transform:none}.to-top:hover{background:#c59a57;color:#2b1d15}
+.page-hero-bg[style*="tour-18"]{background-position:center 30%!important}
+.page-hero .crumb,.page-hero .crumb a{text-shadow:0 1px 8px rgba(0,0,0,.7);color:#f1d9a8}
+.page-hero h1{filter:drop-shadow(0 4px 18px rgba(0,0,0,.45))}
+.vs-copy{padding-left:10vw}
+@media(max-width:900px){.vs-copy{padding-left:8%}}
